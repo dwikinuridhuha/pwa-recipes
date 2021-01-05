@@ -68,22 +68,23 @@
     </form>
   </div>
 
-  
-  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyDuDGcpHGU-Sx1Hla3wYwZvXbjeKpHqPjA",
-      authDomain: "net-ninja-pwa.firebaseapp.com",
-      databaseURL: "https://net-ninja-pwa.firebaseio.com",
-      projectId: "net-ninja-pwa",
-      storageBucket: "net-ninja-pwa.appspot.com",
-      messagingSenderId: "1008745109838"
-    };
-    firebase.initializeApp(config);
-    const db = firebase.firestore();
-  </script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyB0Ta2h5umDrzB3O119lqv1fl_Jsx-M5vM",
+    authDomain: "pwa-ninja-recipes.firebaseapp.com",
+    projectId: "pwa-ninja-recipes",
+    storageBucket: "pwa-ninja-recipes.appspot.com",
+    messagingSenderId: "20131886098",
+    appId: "1:20131886098:web:91a474c3d02866585494cb",
+    measurementId: "G-RRJS67ZK09"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
   <script src="/js/app.js"></script>
   <script src="/js/db.js"></script>
   <script src="/js/ui.js"></script>

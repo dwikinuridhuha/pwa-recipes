@@ -1,5 +1,5 @@
-const staticCacheName = 'site-static-v4';
-const dynamicCacheName = 'site-dynamic-v4';
+const dinamisCache = "dinammis-v1";
+const statikCache = "static-v1"
 const assets = [
   '/',
   '/index.html',
@@ -27,10 +27,11 @@ const limitCacheSize = (name, size) => {
 
 // install event
 self.addEventListener('install', evt => {
-  //console.log('service worker installed');
+  // console.log('service worker installed');
   evt.waitUntil(
-    caches.open(staticCacheName).then((cache) => {
-      console.log('caching shell assets');
+    caches.open(statikCache).then((cache) => {
+      // console.log('caching shell assets');
+      // console.log(assets);
       cache.addAll(assets);
     })
   );
@@ -43,7 +44,7 @@ self.addEventListener('activate', evt => {
     caches.keys().then(keys => {
       //console.log(keys);
       return Promise.all(keys
-        .filter(key => key !== staticCacheName && key !== dynamicCacheName)
+        .filter(key => key !== statikCache && key !== dinamisCache)
         .map(key => caches.delete(key))
       );
     })
@@ -56,10 +57,10 @@ self.addEventListener('fetch', evt => {
     evt.respondWith(
       caches.match(evt.request).then(cacheRes => {
         return cacheRes || fetch(evt.request).then(fetchRes => {
-          return caches.open(dynamicCacheName).then(cache => {
+          return caches.open(dinamisCache).then(cache => {
             cache.put(evt.request.url, fetchRes.clone());
             // check cached items size
-            limitCacheSize(dynamicCacheName, 15);
+            limitCacheSize(dinamisCache, 15);
             return fetchRes;
           })
         });
